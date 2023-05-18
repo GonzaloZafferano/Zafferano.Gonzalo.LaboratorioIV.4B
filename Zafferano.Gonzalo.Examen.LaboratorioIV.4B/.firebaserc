@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "examen-laboratorio4": {
+      "hosting": {
+        "Zafferano.Gonzalo.Examen.LaboratorioIV.4B": [
+          "examen-laboratorio4"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "examen-laboratorio4"
+  }
+}
