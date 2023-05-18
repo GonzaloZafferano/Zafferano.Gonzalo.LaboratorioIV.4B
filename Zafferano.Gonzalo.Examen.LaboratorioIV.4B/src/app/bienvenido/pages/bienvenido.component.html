@@ -1,0 +1,20 @@
+<div class="d-flex justify-content-center"  style="height: 100%; flex-direction: column; background-color: rgb(212, 243, 215);">
+    <h3 class="fw-bold text-center titulo" style="font-size: 5em;">BIENVENIDO</h3>
+ 
+    <!-- mostrrlo en cardd -->
+    <div class="tarjeta-presentacion">
+        <div class="card sombra mt-5 pt-5">
+            <img class="card-img-top rounded-circle imagen" [src]="ruta" alt="Imagen alumno">
+            <div class="card-body">
+                <h5 class="card-title fs-1">{{usuario}}</h5>
+                <h6 class="card-subtitle mb-2 text-muted fs-2"></h6>
+                <p class="card-text d-flex fs-3">HOLA! soy {{usuario}}                         
+                </p>
+                <p class="card-text d-flex fs-3">Te invito a ver mis proyectos en {{urlGit}}                         
+                </p>
+                <p class="card-text d-flex fs-3">Cantidad de proyectos actuales: {{cantidad}}                         
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

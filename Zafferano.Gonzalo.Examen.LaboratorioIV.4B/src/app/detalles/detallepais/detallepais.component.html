@@ -1,0 +1,29 @@
+<ng-container>
+    <div *ngIf="spinner; else lista" class="d-flex justify-content-around" [style]="anchoSpinner">
+        <span class="fs-3 fw-bold">Cargando...</span>
+        <div class="spinner-border text-danger text-center" style="align-self: center; scale: 1.2;"></div>
+    </div>
+    <ng-template #lista>
+        <!-- <div style="height: 500px !important; width: 270px; overflow-y: scroll;"> -->
+        <div *ngIf="pais" style="height: 100% !important;" class="card">
+            <div class="card-header bg-dark text-light">
+                <h3 class="card-title">Detalles País</h3>
+            </div>
+            <div class="row">
+                <div class="col-sm-7">
+                    <div class="card-body">
+                        <h5 class="card-subtitle">Nombre País</h5>
+                        <p class="card-text">{{pais.translations.es}}</p>
+                        <h5 class="card-subtitle">Poblacion</h5>
+                        <p class="card-text">{{pais.population}}</p>
+                        <h5 class="card-subtitle">Region</h5>
+                        <p class="card-text">{{pais.region}}</p>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <img class="card-img-top" [src]="pais.flag" alt="Card image cap">
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</ng-container>

@@ -1,0 +1,6 @@
+<p>detalles works!</p>
+<app-item-listado (OnItemSeleccionado)="itemSeleccionado($event)"></app-item-listado>
+<div class="d-flex justify-content-around mt-5">
+    <app-detalle-item [style]="'width: 30vw; height: 260px'" [item]="item" [spinner]="spinners"></app-detalle-item>
+    <app-detallepais [style]="'width: 30vw; height: 260px'" [pais]="pais" [spinner]="spinners"></app-detallepais>
+</div>

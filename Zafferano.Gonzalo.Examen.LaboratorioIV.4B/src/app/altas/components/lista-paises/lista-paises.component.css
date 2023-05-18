@@ -1,0 +1,19 @@
+img{
+    width: 70px !important;
+    height: 50px !important;
+}
+
+p{
+    font-size: 1em;
+}
+
+.paises{
+    cursor: pointer;
+    width: 96%;
+}
+
+.paises:hover{
+    background-color: green !important;
+    color: white !important;
+    font-weight: bold;    
+}

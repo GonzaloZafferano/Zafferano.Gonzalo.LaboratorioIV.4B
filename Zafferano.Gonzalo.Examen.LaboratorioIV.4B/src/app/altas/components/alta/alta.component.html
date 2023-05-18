@@ -1,0 +1,111 @@
+<div class="container bg-dark text-light">
+    <h3 class="text-center">Complete los datos del Repartidor</h3>
+    <div class="d-flex justify-content-between">
+        <div class="w-100 m-2">
+            <form [formGroup]="form" class="form-group">
+
+                <div>
+                    <label for="dni" class="form-label">DNI</label>
+                    <input type="number" id="dni" class="form-control" formControlName="dni"
+                        name="dni">
+                    <ng-container *ngIf="dni?.hasError('campoVacio')">
+                        <small class="d-block text-danger">
+                            {{dni?.getError('campoVacio').mensaje}}
+                        </small>
+                    </ng-container>
+                    <ng-container *ngIf="dni?.hasError('textoInvalido')">
+                        <small class="d-block text-danger">
+                            {{dni?.getError('textoInvalido').mensaje}}
+                        </small>
+                    </ng-container>
+                    <ng-container *ngIf="dni?.hasError('valorInvalido')">
+                        <small class="d-block text-danger">
+                            {{dni?.getError('valorInvalido').mensaje}}
+                        </small>
+                    </ng-container>
+                </div>
+
+                <div>
+                    <label for="nombre" class="form-label">Nombre</label>
+                    <input type="text" id="nombre" class="form-control" name="nombre" formControlName="nombre">
+                    <ng-container *ngIf="nombre?.hasError('campoVacio')">
+                        <small class="d-block text-danger">
+                            {{nombre?.getError('campoVacio').mensaje}}
+                        </small>
+                    </ng-container>
+                </div>        
+             
+                <div>
+                    <label for="edad" class="form-label">Edad</label>
+                    <input type="number" id="edad" class="form-control" formControlName="edad"
+                        name="edad">
+                    <ng-container *ngIf="edad?.hasError('campoVacio')">
+                        <small class="d-block text-danger">
+                            {{edad?.getError('campoVacio').mensaje}}
+                        </small>
+                    </ng-container>
+                    <ng-container *ngIf="edad?.hasError('textoInvalido')">
+                        <small class="d-block text-danger">
+                            {{edad?.getError('textoInvalido').mensaje}}
+                        </small>
+                    </ng-container>
+                    <ng-container *ngIf="edad?.hasError('valorInvalido')">
+                        <small class="d-block text-danger">
+                            {{edad?.getError('valorInvalido').mensaje}}
+                        </small>
+                    </ng-container>
+                </div>
+
+                <div>
+                    <label for="nacionalidad" class="form-label">País de origen</label>
+                    <input type="text" id="nacionalidad" readonly class="form-control" formControlName="nacionalidad" name="nacionalidad"
+
+                    > 
+                    <!-- [formControl]="pais"   [value]="pais?.translations?.es" -->
+                    <ng-container *ngIf="nacionalidad?.hasError('campoVacio')">
+                        <small class="d-block text-danger">
+                            {{nacionalidad?.getError('campoVacio').mensaje}}
+                        </small>
+                    </ng-container>
+                </div>
+
+
+                <div>
+                    <label for="capacidadTransporte" class="form-label">Capacidad de Transporte</label>
+                    <input type="number" id="capacidadTransporte" class="form-control" formControlName="capacidadTransporte"
+                        name="capacidadTransporte">
+                    <ng-container *ngIf="capacidadTransporte?.hasError('campoVacio')">
+                        <small class="d-block text-danger">
+                            {{capacidadTransporte?.getError('campoVacio').mensaje}}
+                        </small>
+                    </ng-container>
+                    <ng-container *ngIf="capacidadTransporte?.hasError('textoInvalido')">
+                        <small class="d-block text-danger">
+                            {{capacidadTransporte?.getError('textoInvalido').mensaje}}
+                        </small>
+                    </ng-container>
+                    <ng-container *ngIf="capacidadTransporte?.hasError('valorInvalido')">
+                        <small class="d-block text-danger">
+                            {{capacidadTransporte?.getError('valorInvalido').mensaje}}
+                        </small>
+                    </ng-container>
+                </div>
+
+                <div>                    
+                    <label class="form-label m-1" for="confirmarClave">Unidad Propia</label>
+                    <input type="checkbox" id="unidadPropia" formControlName="unidadPropia">
+                </div>
+
+                <div class="d-flex justify-content-between">
+                    <button [disabled]="guardando" type="button" class="btn btn-outline-light m-2"
+                        (click)="limpiarFormulario()">Limpiar</button>
+                    <button [disabled]="guardando || form.invalid" type="button" class="btn btn-outline-light m-2"
+                        (click)="guardar()">Guardar
+                        <span [hidden]="!guardando" class="spinner-border spinner-border-sm"></span>
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

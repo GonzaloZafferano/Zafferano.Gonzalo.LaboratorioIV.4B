@@ -1,0 +1,19 @@
+<div class="border p-2 w-100 bg-dark text-light">
+    <h3>Países</h3>
+    <div *ngIf="spinner; else lista" class="d-flex justify-content-around" [style]="anchoSpinner">
+        <span class="fs-3 fw-bold" >Cargando...</span>
+        <div class="spinner-border text-danger text-center" style="align-self: center; scale: 1.2;"></div>
+    </div>
+    <ng-template #lista>
+        <!-- <div style="height: 500px !important; width: 270px; overflow-y: scroll;"> -->
+            <div [style]="estilos">
+                <div *ngFor="let pais of paises">
+                    <div class="d-flex justify-content-between mx-0 border bg-light text-dark paises"
+                    (click)="paisSeleccionado(pais)">
+                    <p class="m-2">{{pais.translations.es}}</p>
+                    <img [src]="pais.flag">
+                </div>
+        </div>
+    </div>
+</ng-template>
+</div>

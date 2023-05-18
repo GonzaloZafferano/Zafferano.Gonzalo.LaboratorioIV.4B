@@ -1,0 +1,11 @@
+<p>altas works!</p>
+
+<h2 class="text-center custom-font">Alta de Repartidores</h2>
+<div class="d-flex justify-content-center">
+    <div class="w-50 m-2">
+        <app-alta [pais]="paisSeleccionado"></app-alta>
+    </div>
+    <div class="w-25 m-2">
+        <app-lista-paises class="bg-dark" anchoSpinner="width: 100% !important;" estilos="height: 300px !important; width: 100%; overflow-y: auto;" (OnPaisSeleccionado)="tablaPaisesHandler($event)"></app-lista-paises>
+    </div>
+</div>

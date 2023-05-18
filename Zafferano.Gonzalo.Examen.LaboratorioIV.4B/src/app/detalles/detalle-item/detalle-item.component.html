@@ -1,0 +1,23 @@
+<ng-container>
+    <div *ngIf="spinner; else detalleActor" class="d-flex justify-content-around" [style]="anchoSpinner">
+        <span class="fs-3 fw-bold">Cargando...</span>
+        <div class="spinner-border text-danger text-center" style="align-self: center; scale: 1.2;"></div>
+    </div>
+    <ng-template #detalleActor>
+        <div *ngIf="item" style="height: 100% !important;" class="card">
+            <div class="card-header bg-dark text-light">
+                <h3 class="card-title">
+                    Detalles Actor
+                </h3>
+            </div>
+            <div class="card-body">
+                <h5 class="card-subtitle">Nombre Actor</h5>
+                <p class="card-text">{{item.nombre}}</p>
+                <h5 class="card-subtitle">Fecha de Nacimiento</h5>
+                <p class="card-text">{{obtenerFechaString(item.fechaNacimiento)}}</p>
+                <h5 class="card-subtitle">Cantidad de Películas</h5>
+                <p class="card-text">{{item.cantidadPeliculas}}</p>
+            </div>
+        </div>
+    </ng-template>
+</ng-container>

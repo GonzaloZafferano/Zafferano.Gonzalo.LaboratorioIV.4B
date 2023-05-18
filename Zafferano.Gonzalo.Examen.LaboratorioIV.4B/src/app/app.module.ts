@@ -12,10 +12,14 @@ import { provideFirestore, getFirestore, FirestoreModule } from '@angular/fire/f
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { BienvenidoComponent } from './bienvenido/pages/bienvenido.component';
+import { AppHeaderComponent } from './sharedComponents/app-header/app-header.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    BienvenidoComponent,
+    AppHeaderComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,27 @@
+.custom-font-headers {
+    font-size: 2em !important;
+    font-weight: bold !important;
+}
+
+.custom-font-data {
+    font-size: 1.3em !important;
+}
+
+.fila-seleccionada {
+    background-color: #009331 !important;
+    color: #fff;
+    font-weight: bold !important;
+}
+
+.custom-font{
+    font-size: 3em !important;
+    font-weight: bold !important;
+}
+
+.custom-pointer{
+    cursor: pointer;
+}
+
+img{
+    height: 100px;
+}
