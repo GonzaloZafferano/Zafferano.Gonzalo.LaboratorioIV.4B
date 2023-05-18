@@ -7,16 +7,20 @@
         <div *ngIf="item" style="height: 100% !important;" class="card">
             <div class="card-header bg-dark text-light">
                 <h3 class="card-title">
-                    Detalles Actor
+                    Detalles Repartidor
                 </h3>
             </div>
             <div class="card-body">
-                <h5 class="card-subtitle">Nombre Actor</h5>
-                <p class="card-text">{{item.nombre}}</p>
-                <h5 class="card-subtitle">Fecha de Nacimiento</h5>
-                <p class="card-text">{{obtenerFechaString(item.fechaNacimiento)}}</p>
-                <h5 class="card-subtitle">Cantidad de Películas</h5>
-                <p class="card-text">{{item.cantidadPeliculas}}</p>
+                <h5 class="card-subtitle">Nombre Repartidor</h5>
+                <p class="card-text">{{item?.nombre}}</p>   
+                <h5 class="card-subtitle">DNI</h5>
+                <p class="card-text">{{item?.dni}}</p>
+                <h5 class="card-subtitle">Edad</h5>
+                <p class="card-text">{{item?.edad}}</p>
+                <h5 class="card-subtitle">Capacidad de transporte</h5>
+                <p class="card-text">{{item?.capacidadTransporte}}</p>
+                <h5 class="card-subtitle">Unidad Propia</h5>
+                <p class="card-text">{{item?.unidadPropia == true ? 'Si' : 'NO'}}</p>
             </div>
         </div>
     </ng-template>
