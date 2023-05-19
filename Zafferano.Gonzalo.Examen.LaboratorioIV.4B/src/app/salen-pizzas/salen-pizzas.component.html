@@ -1,0 +1,14 @@
+<app-lista-pizzas (OnItemSeleccionado)="pizzaSeleccionda($event)"></app-lista-pizzas>
+<div class="d-flex justify-content-around m-5">
+
+    <div>
+        <app-alta></app-alta>
+    </div>
+
+    <div>
+        <app-modificar [pizzaCargada]="pizza"></app-modificar>
+    </div>
+    <div>
+        <app-borrar (OnPizzaEliminada)="limpiar()" [pizzaCargada]="pizza"></app-borrar>
+    </div>
+</div>

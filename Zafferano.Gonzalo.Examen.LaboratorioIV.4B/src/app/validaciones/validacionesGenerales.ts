@@ -162,6 +162,54 @@ export function validarCampoSelect(): ValidatorFn {
     }
 }
 
+
+export function validarPesoPizza(nombreCampo: string): ValidatorFn {
+    return (formGroup: AbstractControl): { [key: string]: any } | null => {
+        const campoAValidar = formGroup.get(nombreCampo);
+        const errors: any = [];
+        //CARGO LOS DISTINTOS ERRORES QUE PUEDE TENER.
+        
+        if (campoAValidar?.value === '' || campoAValidar?.value == null || campoAValidar?.value == undefined)
+            errors.campoVacio = { hayError: true, mensaje: 'Campo requerido.' };
+        else if (isNaN(campoAValidar?.value))
+            errors.textoInvalido = { hayError: true, mensaje: 'Solo se pueden ingresar caracteres numericos.' };
+        else if (campoAValidar?.value < 500 || campoAValidar?.value > 1000)
+            errors.valorInvalido = { hayError: true, mensaje: 'Debe ingresar un valor entre 500gramos y 1000gramos.' };
+
+        //SI TIENE ERRORES, LOS SETEO AL CONTROL:
+        if (Object.keys(errors).length) {
+            campoAValidar?.setErrors(errors);
+            return errors;
+        }
+        campoAValidar?.setErrors(null);
+        return null;
+    }
+}
+
+
+
+export function validarPrecio(nombreCampo: string): ValidatorFn {
+    return (formGroup: AbstractControl): { [key: string]: any } | null => {
+        const campoAValidar = formGroup.get(nombreCampo);
+        const errors: any = [];
+        //CARGO LOS DISTINTOS ERRORES QUE PUEDE TENER.
+        
+        if (campoAValidar?.value === '' || campoAValidar?.value == null || campoAValidar?.value == undefined)
+            errors.campoVacio = { hayError: true, mensaje: 'Campo requerido.' };
+        else if (isNaN(campoAValidar?.value))
+            errors.textoInvalido = { hayError: true, mensaje: 'Solo se pueden ingresar caracteres numericos.' };
+        else if (campoAValidar?.value < 1000 || campoAValidar?.value > 3000)
+            errors.valorInvalido = { hayError: true, mensaje: 'Debe ingresar un valor entre $1000 y $3000.' };
+
+        //SI TIENE ERRORES, LOS SETEO AL CONTROL:
+        if (Object.keys(errors).length) {
+            campoAValidar?.setErrors(errors);
+            return errors;
+        }
+        campoAValidar?.setErrors(null);
+        return null;
+    }
+}
 export function validarCampoArchivo(): ValidatorFn {
     return (control: AbstractControl): [key: string, value: any] | null => {
         const campoAValidar = control;

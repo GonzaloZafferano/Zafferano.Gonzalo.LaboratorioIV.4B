@@ -8,6 +8,7 @@ import { AltasService } from 'src/app/services/altas/altas.service';
 })
 export class ItemListadoComponent {
   @Output() OnItemSeleccionado = new EventEmitter<any>();
+
   filaSeleccionada: any;
   listado: any[] = [];
   spinner : boolean = false;

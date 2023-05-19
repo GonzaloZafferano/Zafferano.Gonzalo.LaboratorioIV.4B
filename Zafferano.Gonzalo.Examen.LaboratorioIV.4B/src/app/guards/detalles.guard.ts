@@ -12,9 +12,7 @@ export class DetallesGuard implements CanActivate, CanDeactivate<unknown> {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-// let x = this.firestoreLogin.getUsuarioActualBasico;
-// let user = this.usuarioService.traerUsuarioPorId(x.id);
-// debugger;
+
     if (this.firestoreLogin.getUsuarioActualBasico)
       return true;
     else

@@ -1,0 +1,44 @@
+<div class="container-fluid">
+    <h3 class="text-center custom-font">Listado de películas</h3>
+    <div class="row bg-dark text-light text-center">
+        <div class="col-sm border d-none">
+            <h3 class="custom-font-headers">Id</h3>
+        </div>
+        <div class="col-sm-3 border">
+            <h3 class="custom-font-headers">Nombre</h3>
+        </div>
+        <div class="col-sm-3 border">
+            <h3 class="custom-font-headers">Ingredientes</h3>
+        </div>
+        <div class="col-sm-3 border">
+            <h3 class="custom-font-headers">Precio</h3>
+        </div>
+        <div class="col-sm-3 border">
+            <h3 class="custom-font-headers">Peso (mg)</h3>
+        </div>      
+    </div>
+    <div *ngIf="spinner; else lista" class="d-flex justify-content-center">
+        <span class="m-3 fs-3 fw-bold">Cargando...</span>
+        <div class="spinner-border text-danger" style="align-self: center; scale: 1.2;"></div>
+    </div>
+    <ng-template #lista>
+        <div *ngFor="let item of listado" class="row custom-pointer" (click)="seleccionDeFila(item)"
+            [class.fila-seleccionada]="filaSeleccionada != null && item.id === filaSeleccionada.id">
+            <div class="col-sm border d-none">
+                {{item.id}}
+            </div>
+            <div class="col-sm-3 border custom-font-data">
+                {{item.nombre}}
+            </div>
+            <div class="col-sm-3 border custom-font-data">
+                {{item.texto}}
+            </div>
+            <div class="col-sm-3 border custom-font-data">
+                {{item.precio}}
+            </div>
+            <div class="col-sm-3 border custom-font-data">
+                {{item.peso}}
+            </div>          
+        </div>
+    </ng-template>
+</div>

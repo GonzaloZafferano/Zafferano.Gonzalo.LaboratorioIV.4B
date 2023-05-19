@@ -70,7 +70,6 @@ export class AltaComponent {
   }
 
   guardar() {
-    debugger;
     if (!this.form.invalid) {
       this.guardando = true;
       let unidadPropia = (this.unidadPropia?.value != null && this.unidadPropia.value != "" ? this.unidadPropia.value : false) as boolean;

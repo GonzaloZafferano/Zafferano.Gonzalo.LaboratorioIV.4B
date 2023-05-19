@@ -1,22 +1,22 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, CanDeactivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { ActivatedRouteSnapshot, CanActivate, CanDeactivate, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
-import { FirestoreLoginService } from '../services/FirestoreLogin/firestore-login.service';
+import { LocalStorageService } from '../services/LocalStorage/local-storage.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class LoginGuard implements CanActivate, CanDeactivate<unknown> {
-  constructor(private firestoreLogin: FirestoreLoginService, private router: Router,) {
-  }
+export class SalenPizzasGuard implements CanActivate, CanDeactivate<unknown> {
 
+  constructor(private localStorage: LocalStorageService){}
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    if (!this.firestoreLogin.getUsuarioEstaLogueado) {
+    
+     let esAdmin = this.localStorage.obtenerItem('esAdmin');
+    if(esAdmin){
       return true;
     }
-    this.router.navigate(['/bienvenido']);
     return false;
   }
   canDeactivate(

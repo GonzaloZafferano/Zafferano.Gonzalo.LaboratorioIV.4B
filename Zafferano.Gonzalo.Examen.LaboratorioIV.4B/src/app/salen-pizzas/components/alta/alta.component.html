@@ -1,0 +1,89 @@
+<div class="container bg-dark text-light">
+    <h3 class="text-center">Complete los datos de la PIZZA</h3>
+    <div class="d-flex justify-content-between">
+        <div class="w-100 m-2">
+            <form [formGroup]="form" class="form-group">
+       
+             
+                <div>
+                    <label for="nombre" class="form-label">Nombre</label>
+                    <input type="text" id="nombre" class="form-control" name="nombre" formControlName="nombre">
+                    <ng-container *ngIf="nombre?.hasError('campoVacio')">
+                        <small class="d-block text-danger">
+                            {{nombre?.getError('campoVacio').mensaje}}
+                        </small>
+                    </ng-container>
+                </div>        
+             
+                <div>
+                    <label for="texto" class="form-label">Ingredientes</label>
+                    <input type="text" id="texto" class="form-control" name="texto" formControlName="texto">
+                    <ng-container *ngIf="texto?.hasError('campoVacio')">
+                        <small class="d-block text-danger">
+                            {{texto?.getError('campoVacio').mensaje}}
+                        </small>
+                    </ng-container>
+                </div>      
+
+
+
+
+
+
+
+                <div>
+                    <label for="precio" class="form-label">Precio ($1000 - $3000)</label>
+                    <input type="number" id="precio" class="form-control" formControlName="precio"
+                        name="precio">
+                    <ng-container *ngIf="precio?.hasError('campoVacio')">
+                        <small class="d-block text-danger">
+                            {{precio?.getError('campoVacio').mensaje}}
+                        </small>
+                    </ng-container>
+                    <ng-container *ngIf="precio?.hasError('textoInvalido')">
+                        <small class="d-block text-danger">
+                            {{precio?.getError('textoInvalido').mensaje}}
+                        </small>
+                    </ng-container>
+                    <ng-container *ngIf="precio?.hasError('valorInvalido')">
+                        <small class="d-block text-danger">
+                            {{precio?.getError('valorInvalido').mensaje}}
+                        </small>
+                    </ng-container>
+                </div>
+             
+
+                <div>
+                    <label for="peso" class="form-label">Peso (en gramos)</label>
+                    <input type="number" id="peso" class="form-control" formControlName="peso"
+                        name="peso">
+                    <ng-container *ngIf="peso?.hasError('campoVacio')">
+                        <small class="d-block text-danger">
+                            {{peso?.getError('campoVacio').mensaje}}
+                        </small>
+                    </ng-container>
+                    <ng-container *ngIf="peso?.hasError('textoInvalido')">
+                        <small class="d-block text-danger">
+                            {{peso?.getError('textoInvalido').mensaje}}
+                        </small>
+                    </ng-container>
+                    <ng-container *ngIf="peso?.hasError('valorInvalido')">
+                        <small class="d-block text-danger">
+                            {{peso?.getError('valorInvalido').mensaje}}
+                        </small>
+                    </ng-container>
+                </div>
+
+                <div class="d-flex justify-content-between">
+                    <button [disabled]="guardando" type="button" class="btn btn-outline-light m-2"
+                        (click)="limpiarFormulario()">Limpiar</button>
+                    <button [disabled]="guardando || form.invalid" type="button" class="btn btn-outline-light m-2"
+                        (click)="guardar()">Guardar
+                        <span [hidden]="!guardando" class="spinner-border spinner-border-sm"></span>
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
